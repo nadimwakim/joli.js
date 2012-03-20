@@ -122,12 +122,9 @@ var joliCreator = function() {
                 return "NULL";
             } else {
                 if (joli.getType(val) === "string") {
-                    // escape single quotes and dollar signs.
+                    // escape single quotes.
                     // quotes are escaped for SQLite
                     val = val.replace(/'/g, "''");
-                    // dollar signs are escaped for use in calling str.replace in
-                    // JazzRecord.replaceAndClean()
-                    val = val.replace(/\$/g, "$$$$");
                     val = "'" + val + "'";
                 } else if (joli.getType(val) === "boolean") {
                     if (val) {
